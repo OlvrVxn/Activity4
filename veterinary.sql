@@ -30,4 +30,18 @@ CREATE TABLE doctors (
     specialty VARCHAR(100),
     phone VARCHAR(15),
     email VARCHAR(100)
+); 
+
+CREATE TABLE medicalrecords (
+   recordid INT PRIMARY KEY,
+   animalid INT,
+   recorddate DATETIME,
+   doctorid INT,
+   diagnosis VARCHAR(255),
+   prescription VARCHAR(255),
+   notes TEXT,
+   FOREIGN KEY (animalid) 
+   REFERENCES animals(animalid),
+   FOREIGN KEY (doctorid) 
+   REFERENCES doctors(doctorid)
 );
